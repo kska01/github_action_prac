@@ -1,0 +1,14 @@
+name: Test
+
+on:
+  push:
+    branchs:
+      - features/*
+
+jobs:
+  Test:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Print-Test
+        run: echo 'Test'
