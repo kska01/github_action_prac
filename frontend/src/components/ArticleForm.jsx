@@ -41,7 +41,7 @@ export default function ArticleForm({ fetchArticles }) {
           name="title"
           value={inputData.title}
           onChange={handleFormChange}
-          placeholder="title 입력"
+          placeholder="제목 입력"
           className={styles.input}
         />
         <textarea
@@ -49,11 +49,11 @@ export default function ArticleForm({ fetchArticles }) {
           name="content"
           value={inputData.content}
           onChange={handleFormChange}
-          placeholder="content 입력"
+          placeholder="내용 입력"
           className={styles.textarea}
         />
         <button type="submit" className={styles.button}>
-          Article 생성
+          생성
         </button>
       </form>
     </div>
