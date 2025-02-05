@@ -1,0 +1,54 @@
+services:
+  db:
+    container_name: db-container
+    image: mysql:8.0
+    volumes:
+      - db-volume:/var/lib/mysql
+    env_file:
+      - .env
+    networks:
+      - db-connect
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
+  backend:
+    container_name: backend-container
+    build:
+      context: ./backend
+    image: kska01/backend:latest
+    env_file:
+      - .env
+    environment:
+      DATABASE_HOST: db
+    networks:
+      - db-connect
+      - backend-connect
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    container_name: frontend-container
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: ${VITE_API_URL}
+    image: kska01/frontend:latest
+    ports:
+      - "80:80"
+    networks:
+      - backend-connect
+    depends_on:
+      - backend
+      - db
+
+volumes:
+  db-volume:
+
+networks:
+  db-connect:
+  backend-connect:
