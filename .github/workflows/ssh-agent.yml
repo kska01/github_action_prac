@@ -21,4 +21,4 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts || true
 
       - name: create file on remote server
-        run: ssh -p ${{ secrets.SSH_PORT }} ${{ SSH_USERNAME }}@${{ SSH_HOST }} "touch 'hello-world.txt'"
+        run: ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "touch 'hello-world.txt'"
