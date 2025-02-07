@@ -32,7 +32,8 @@ jobs:
         uses: actions/cache@v4.2.0
         with:
           path: /tmp/.buildx-cache
-          key: docker-image-layer-cache
+          key: docker-image-layer-cache-${{ github.sha }}
+          restore-keys: docker-image-layer-cache
 
 
       # 원격 서버를 신뢰할 수 있는 서버로 등록하는 과정
