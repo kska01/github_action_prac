@@ -44,6 +44,12 @@ services:
     container_name: frontend-container
     build:
       context: ./frontend
+      cache_to:
+        # type: 캐시의 종류, src: 캐시를 저장할 경로, mode: 캐시의 저장 방식 (max : 최대한 많은 캐시 데이터를 저장)
+        - type=local,dest=/tmp/.buildx-cache/frontend,mode=max
+      # 캐시 불러올 경로
+      cache_from:
+        - type=local,src=/tmp/.buildx-cache/frontend
       args:
         VITE_API_URL: ${VITE_API_URL}
     image: kska01/frontend:latest
