@@ -18,6 +18,14 @@ jobs:
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+
+      # 액션 시작 알림 메시지
+      - name: Start Message
+        uses: sarisia/actions-status-discord@v1
+        with:
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          title: "배포 시작"
+      
       # 원격 서버를 신뢰할 수 있는 서버로 등록하는 과정
       # known_hosts : 원격 서버들의 지문이 저장된 파일
       - name: Add Remote Sever Fingerprint to Known Hosts
