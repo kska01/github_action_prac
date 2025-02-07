@@ -26,7 +26,8 @@ services:
         - type=local, dest=/tmp/.buildx-cache/backend, mode=max
       # 캐시 불러올 경로
       cached_from:
-        - type=local, src=/tmp/.buildx-cache/backend:latest
+        - type=local, src=/tmp/.buildx-cache/backend
+
     image: kska01/backend:latest
     env_file:
       - .env
