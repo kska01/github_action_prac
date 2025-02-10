@@ -34,10 +34,8 @@ pipeline {
 						}
 					}
 				}
-		}
 
-		stages { 
-			stage('Build Start') {
+				stage('Build Start') {
 				steps {
 					script {
 						// Jenkins Credentials에서 Secret Text 가져오기
@@ -87,5 +85,5 @@ pipeline {
                         webhookURL: "$discord_webhook"
             }
         }
-    }
+		}
 }
