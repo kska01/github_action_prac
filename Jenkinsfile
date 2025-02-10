@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-	              echo '애플리케이션 빌드1'
+	              echo '애플리케이션 빌드2'
             } 
         }
         
         stage('Test'){
 		        steps{
-				        echo '애플리케이션 테스트1'
+				        echo '애플리케이션 테스트2'
 		        }
         }
     }
