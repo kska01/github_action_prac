@@ -53,6 +53,8 @@ services:
       args:
         VITE_API_URL: ${VITE_API_URL}
     image: kska01/frontend:latest
+    env_file:
+      - .env
     ports:
       - "80:80"
       - "443:443"
