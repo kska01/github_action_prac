@@ -1,11 +1,11 @@
 # HTTPS(443) 설정
  server {
     listen 443 ssl http2;
-    server_name 3.35.135.128.sslip.io;
+    server_name ${DOMAIN};
 
     # SSL 설정
-    ssl_certificate /etc/letsencrypt/live/3.35.135.128.sslip.io/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/3.35.135.128.sslip.io/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/${DOMAIN}/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/${DOMAIN}/privkey.pem;
 
     # SSL 보안 설정
     ssl_protocols TLSv1.2 TLSv1.3;
@@ -20,7 +20,7 @@
     }
 
     location /api/ {
-        proxy_pass http://backend-container:8080;
+        proxy_pass ${API_URL};
         proxy_set_header Host $host;
     }
 }
