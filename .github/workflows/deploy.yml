@@ -99,6 +99,7 @@ jobs:
             docker-compose -f docker-compose-actions-cache.yml pull
             docker-compose -f docker-compose-actions-cache.yml down
             docker-compose -f docker-compose-actions-cache.yml up -d
+            docker image prune -f
 
 
      # 액션 시작 알림 메시지
