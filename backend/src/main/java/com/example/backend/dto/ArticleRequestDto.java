@@ -1,6 +1,7 @@
 package com.example.backend.dto;
 
 import lombok.*;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @Getter
@@ -11,5 +12,6 @@ import lombok.*;
 public class ArticleRequestDto {
 	private String title;
 	private String content;
+	private MultipartFile file;
 
 }

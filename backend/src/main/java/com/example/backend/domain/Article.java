@@ -27,6 +27,20 @@ public class Article {
 	@Column(nullable = false, length = 1000)
 	private String content;
 
+	// S3 객체의 접근 URL
+	@Column(nullable = true)
+	private String imageUrl;
+
+	// S3 버킷의 객체를 식별하는 키
+	// uuid_filename.jpg 같은 형태
+	@Column(nullable = true)
+	private String s3Key;
+
+	// 업로드 파일의 원본 파일명
+	// 화면 출력용
+	@Column(nullable = true)
+	private String originalFileName;
+
 	@CreatedDate
 	@Column(nullable = true, updatable = false)
 	private LocalDateTime createdAt;
